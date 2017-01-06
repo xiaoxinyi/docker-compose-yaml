@@ -1,0 +1,30 @@
+version: '2'
+services:
+  zl-gnome:
+    image: zl/dl-gnome:1.5.b
+    container_name: zl_dl_gnome
+    restart: always
+    tty: true
+    ports:
+      - "38001:8888"
+      - "36001:6006"
+      - "38901:5901"
+    devices:
+      - /dev/nvidia0
+    volumes:
+      - ~/zhangli/dl-data:/root/dl-data
+      - ~/sxwl-dataset:/root/sxwl-dataset
+  hzy-gnome:
+    image: zl/dl-gnome:1.5.b
+    container_name: hzy_dl_gnome
+    restart: always
+    tty: true
+    ports:
+      - "38002:8888"
+      - "36002:6006"
+      - "38902:5901"
+    devices:
+      - /dev/nvidia0
+    volumes:
+      - ~/hzy/dl-data:/root/dl-data
+      - ~/sxwl-dataset:/root/sxwl-dataset

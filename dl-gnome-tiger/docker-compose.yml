@@ -1,0 +1,32 @@
+version: '2'
+services:
+  zl-gnome-tiger:
+    image: zl/dl-gnome-tiger:1.3
+    restart: always
+    tty: true
+    ports:
+      - "18001:8888"
+      - "16001:6006"
+      - "18901:5901"
+      - "18900:5900"
+      - "10001:22"
+    devices:
+      - /dev/nvidia0
+    volumes:
+      - ~/zhangli/dl-data:/root/dl-data
+      - ~/sxwl-dataset:/root/sxwl-dataset
+  hzy-gnome-tiger:
+    image: zl/dl-gnome-tiger:1.3
+    restart: always
+    tty: true
+    ports:
+      - "18002:8888"
+      - "16002:6006"
+      - "18903:5901"
+      - "18902:5900"
+      - "10002:22"
+    devices:
+      - /dev/nvidia0
+    volumes:
+      - ~/hzy/dl-data:/root/dl-data
+      - ~/sxwl-dataset:/root/sxwl-dataset

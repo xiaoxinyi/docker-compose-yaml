@@ -1,0 +1,39 @@
+services:
+  hzy-gnome:
+    container_name: hzy_dl_gnome
+    devices:
+    - /dev/nvidia0
+    - /dev/nvidiactl
+    - /dev/nvidia-uvm
+    image: zl/dl-gnome:1.5.b
+    ports:
+    - 38002:8888
+    - 36002:6006
+    - 38902:5901
+    restart: always
+    tty: true
+    volumes:
+    - ~/hzy/dl-data:/root/dl-data
+    - ~/sxwl-dataset:/root/sxwl-dataset
+    - nvidia_driver_367.57:/usr/local/nvidia:ro
+  zl-gnome:
+    container_name: zl_dl_gnome
+    devices:
+    - /dev/nvidia0
+    - /dev/nvidiactl
+    - /dev/nvidia-uvm
+    image: zl/dl-gnome:1.5.b
+    ports:
+    - 38001:8888
+    - 36001:6006
+    - 38901:5901
+    restart: always
+    tty: true
+    volumes:
+    - ~/zhangli/dl-data:/root/dl-data
+    - ~/sxwl-dataset:/root/sxwl-dataset
+    - nvidia_driver_367.57:/usr/local/nvidia:ro
+version: '2'
+volumes:
+  nvidia_driver_367.57:
+    external: true
