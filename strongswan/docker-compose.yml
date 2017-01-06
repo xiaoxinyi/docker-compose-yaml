@@ -1,0 +1,15 @@
+version: '2'
+services:
+  vpn:
+    image: ikoula/docker-l2tp-ipsec-vpn
+    container_name: docker-l2tp-ipsec-client-vpn
+    privileged: true
+    network_mode: "host"
+    ports:
+      - "500:500/udp"
+      - "4500:4500/udp"
+      - "1701:1701/udp"
+    cap_add:
+      - ALL
+    env_file:
+      - ./vpn.env

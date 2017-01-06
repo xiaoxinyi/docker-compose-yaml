@@ -1,0 +1,38 @@
+version: '2'
+services:
+  zl-tigervnc:
+    image: zl/dl-tigervnc:1.5.1.a
+    container_name: zl_dl_tigervnc
+    restart: always
+    tty: true
+    ports:
+      - "18001:8888"
+      - "16001:6006"
+      - "18901:5900"
+      - "10001:22"
+    devices:
+      - /dev/nvidia0
+    volumes:
+      - ~/zhangli/dl-data:/root/dl-data
+      - ~/sxwl-dataset:/root/sxwl-dataset
+      - /var/run/docker.sock:/var/run/docker.sock
+    extra_hosts:
+      - "dockerhost:192.168.0.208"
+  hzy-tigervnc:
+    image: zl/dl-tigervnc:1.5.1.a
+    container_name: hzy_dl_tigervnc
+    restart: always
+    tty: true
+    ports:
+      - "18002:8888"
+      - "16002:6006"
+      - "18902:5900"
+      - "10002:22"
+    devices:
+      - /dev/nvidia0
+    volumes:
+      - ~/hzy/dl-data:/root/dl-data
+      - ~/sxwl-dataset:/root/sxwl-dataset
+      - /var/run/docker.sock:/var/run/docker.sock
+    extra_hosts:
+      - "dockerhost:192.168.0.208"

@@ -1,0 +1,3 @@
+FROM gogs/gogs
+EXPOSE 3000
+EXPOSE 22

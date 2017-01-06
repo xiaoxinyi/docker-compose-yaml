@@ -1,0 +1,41 @@
+services:
+  hzy-x11vnc:
+    container_name: hzy_dl_x11vnc
+    devices:
+    - /dev/nvidia0
+    - /dev/nvidiactl
+    - /dev/nvidia-uvm
+    image: zl/dl-x11vnc:1.5.a
+    ports:
+    - 28002:8888
+    - 26002:6006
+    - 25902:5900
+    - '22002:22'
+    restart: always
+    tty: true
+    volumes:
+    - ~/hzy/dl-data:/root/dl-data
+    - ~/sxwl-dataset:/root/sxwl-dataset
+    - nvidia_driver_367.57:/usr/local/nvidia:ro
+  zl-x11vnc:
+    container_name: zl_dl_x11vnc
+    devices:
+    - /dev/nvidia0
+    - /dev/nvidiactl
+    - /dev/nvidia-uvm
+    image: zl/dl-x11vnc:1.5.a
+    ports:
+    - 28001:8888
+    - 26001:6006
+    - 25901:5900
+    - '22001:22'
+    restart: always
+    tty: true
+    volumes:
+    - ~/zhangli/dl-data:/root/dl-data
+    - ~/sxwl-dataset:/root/sxwl-dataset
+    - nvidia_driver_367.57:/usr/local/nvidia:ro
+version: '2'
+volumes:
+  nvidia_driver_367.57:
+    external: true

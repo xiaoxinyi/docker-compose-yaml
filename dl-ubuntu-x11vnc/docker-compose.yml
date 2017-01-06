@@ -1,0 +1,32 @@
+version: '2'
+services:
+  zl-x11:
+    image: zl/dl-ubuntu-x11vnc:1.3a
+    restart: always
+    tty: true
+    ports:
+      - "18001:8888"
+      - "16001:6006"
+      - "18901:5901"
+      - "16080:6080"
+      - "10001:22"
+    devices:
+      - /dev/nvidia0
+    volumes:
+      - ~/zhangli/dl-data:/root/dl-data
+      - ~/sxwl-dataset:/root/sxwl-dataset
+  hzy-x11:
+    image: zl/dl-ubuntu-x11vnc:1.3a
+    restart: always
+    tty: true
+    ports:
+      - "18002:8888"
+      - "16002:6006"
+      - "18902:5901"
+      - "16081:6080"
+      - "10002:22"
+    devices:
+      - /dev/nvidia0
+    volumes:
+      - ~/hzy/dl-data:/root/dl-data
+      - ~/sxwl-dataset:/root/sxwl-dataset

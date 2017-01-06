@@ -1,0 +1,27 @@
+version: '2'
+services:
+  git:
+    image : gogs/gogs
+    restart : always
+    container_name : test_git_server
+    depends_on:
+      - mysql
+    volumes:
+      - ./gogs-server:/data
+    ports:
+      - "12223:22"
+      - "18889:3000"
+    links:
+      - mysql
+  mysql:
+    image: mysql:5.7
+    container_name: gogs_mysql
+    restart: always
+    expose:
+      - 3306
+    command: [mysqld, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci]
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=gogs
+    # ports
+    #   - "5433:5432"

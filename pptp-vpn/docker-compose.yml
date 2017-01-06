@@ -1,0 +1,11 @@
+version: '2'
+services:
+  pptp-vpn-client:
+    image: mobtitude/vpn-pptp
+    container_name: docker-pptp-vpn-client
+    ports:
+      - "1723:1723"
+    volumes:
+      - .:/etc/ppp
+    privileged: true
+    network_mode: "host"

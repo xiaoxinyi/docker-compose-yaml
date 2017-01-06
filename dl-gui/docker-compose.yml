@@ -1,0 +1,26 @@
+version: '2'
+services:
+  zl-caffe-torch:
+    image: zl/caffe-torch-gpu:12.27
+    restart: always
+    tty: true
+    ports:
+      - "8888:8888"
+      - "26006:6006"
+    devices:
+      - /dev/nvidia0
+    volumes:
+      - ~/zhangli/dl-data:/root/dl-data
+      - ~/sxwl-dataset:/root/sxwl-dataset
+  hzy-caffe-torch:
+    image: zl/caffe-torch-gpu:12.27
+    restart: always
+    tty: true
+    ports:
+      - "8889:8888"
+      - "26007:6006"
+    devices:
+      - /dev/nvidia0
+    volumes:
+      - ~/hzy/dl-data:/root/dl-data
+      - ~/sxwl-dataset:/root/sxwl-dataset

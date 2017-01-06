@@ -1,0 +1,41 @@
+services:
+  hzy-x11:
+    devices:
+    - /dev/nvidia0
+    - /dev/nvidiactl
+    - /dev/nvidia-uvm
+    image: zl/dl-ubuntu-x11vnc:1.3a
+    ports:
+    - 18002:8888
+    - 16002:6006
+    - 18902:5901
+    - 16081:6080
+    - '10002:22'
+    restart: always
+    tty: true
+    volumes:
+    - ~/hzy/dl-data:/root/dl-data
+    - ~/sxwl-dataset:/root/sxwl-dataset
+    - nvidia_driver_367.57:/usr/local/nvidia:ro
+  zl-x11:
+    devices:
+    - /dev/nvidia0
+    - /dev/nvidiactl
+    - /dev/nvidia-uvm
+    image: zl/dl-ubuntu-x11vnc:1.3a
+    ports:
+    - 18001:8888
+    - 16001:6006
+    - 18901:5901
+    - 16080:6080
+    - '10001:22'
+    restart: always
+    tty: true
+    volumes:
+    - ~/zhangli/dl-data:/root/dl-data
+    - ~/sxwl-dataset:/root/sxwl-dataset
+    - nvidia_driver_367.57:/usr/local/nvidia:ro
+version: '2'
+volumes:
+  nvidia_driver_367.57:
+    external: true

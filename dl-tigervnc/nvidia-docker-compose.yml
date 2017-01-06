@@ -1,0 +1,47 @@
+services:
+  hzy-tigervnc:
+    container_name: hzy_dl_tigervnc
+    devices:
+    - /dev/nvidia0
+    - /dev/nvidiactl
+    - /dev/nvidia-uvm
+    extra_hosts:
+    - dockerhost:192.168.0.208
+    image: zl/dl-tigervnc:1.5.1.a
+    ports:
+    - 18002:8888
+    - 16002:6006
+    - 18902:5900
+    - '10002:22'
+    restart: always
+    tty: true
+    volumes:
+    - ~/hzy/dl-data:/root/dl-data
+    - ~/sxwl-dataset:/root/sxwl-dataset
+    - /var/run/docker.sock:/var/run/docker.sock
+    - nvidia_driver_367.57:/usr/local/nvidia:ro
+  zl-tigervnc:
+    container_name: zl_dl_tigervnc
+    devices:
+    - /dev/nvidia0
+    - /dev/nvidiactl
+    - /dev/nvidia-uvm
+    extra_hosts:
+    - dockerhost:192.168.0.208
+    image: zl/dl-tigervnc:1.5.1.a
+    ports:
+    - 18001:8888
+    - 16001:6006
+    - 18901:5900
+    - '10001:22'
+    restart: always
+    tty: true
+    volumes:
+    - ~/zhangli/dl-data:/root/dl-data
+    - ~/sxwl-dataset:/root/sxwl-dataset
+    - /var/run/docker.sock:/var/run/docker.sock
+    - nvidia_driver_367.57:/usr/local/nvidia:ro
+version: '2'
+volumes:
+  nvidia_driver_367.57:
+    external: true

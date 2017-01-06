@@ -1,0 +1,11 @@
+version: '2'
+services:
+  nginx-rtmp:
+    image: tiangolo/nginx-rtmp
+    container_name: zl_nginx_rtmp
+    restart: always
+    tty: true
+    ports:
+      - "11935:1935"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf

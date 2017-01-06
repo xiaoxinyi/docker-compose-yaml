@@ -1,0 +1,32 @@
+version: '2'
+services:
+  zl-x11vnc:
+    image: zl/dl-x11vnc:1.5.a
+    container_name: zl_dl_x11vnc
+    restart: always
+    tty: true
+    ports:
+      - "28001:8888"
+      - "26001:6006"
+      - "25901:5900"
+      - "22001:22"
+    devices:
+      - /dev/nvidia0
+    volumes:
+      - ~/zhangli/dl-data:/root/dl-data
+      - ~/sxwl-dataset:/root/sxwl-dataset
+  hzy-x11vnc:
+    image: zl/dl-x11vnc:1.5.a
+    container_name: hzy_dl_x11vnc
+    restart: always
+    tty: true
+    ports:
+      - "28002:8888"
+      - "26002:6006"
+      - "25902:5900"
+      - "22002:22"
+    devices:
+      - /dev/nvidia0
+    volumes:
+      - ~/hzy/dl-data:/root/dl-data
+      - ~/sxwl-dataset:/root/sxwl-dataset
