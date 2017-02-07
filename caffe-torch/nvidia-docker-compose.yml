@@ -5,7 +5,7 @@ services:
     - /dev/nvidia0
     - /dev/nvidiactl
     - /dev/nvidia-uvm
-    image: zl/caffe-torch:1.3.b
+    image: zl/caffe-torch:1.11.a
     ports:
     - 8889:8888
     - 6007:6006
@@ -14,6 +14,7 @@ services:
     volumes:
     - ~/hzy/dl-data:/root/dl-data
     - ~/sxwl-dataset:/root/sxwl-dataset
+    - ~/raychar/phpdocker/app/DeepAR_Backend/frontend/web/res/upload/ballreco:/root/BallReco
     - nvidia_driver_367.57:/usr/local/nvidia:ro
   zl-caffe-torch:
     container_name: zl_caffe_torch
@@ -21,7 +22,7 @@ services:
     - /dev/nvidia0
     - /dev/nvidiactl
     - /dev/nvidia-uvm
-    image: zl/caffe-torch:1.3.b
+    image: zl/caffe-torch:1.11.a
     ports:
     - 8888:8888
     - 6006:6006

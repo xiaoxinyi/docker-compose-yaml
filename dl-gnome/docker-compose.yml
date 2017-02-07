@@ -6,6 +6,7 @@ services:
     restart: always
     tty: true
     ports:
+      - "38021:22"
       - "38001:8888"
       - "36001:6006"
       - "38901:5901"
@@ -20,6 +21,7 @@ services:
     restart: always
     tty: true
     ports:
+      - "38022:22"
       - "38002:8888"
       - "36002:6006"
       - "38902:5901"

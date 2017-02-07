@@ -5,9 +5,11 @@ services:
     - /dev/nvidia0
     - /dev/nvidiactl
     - /dev/nvidia-uvm
+    external_links:
+    - zl_nginx_rtmp
     extra_hosts:
     - dockerhost:192.168.0.208
-    image: zl/dl-tigervnc:1.5.1.a
+    image: zl/dl-tigervnc:1.3
     ports:
     - 18002:8888
     - 16002:6006
@@ -18,7 +20,6 @@ services:
     volumes:
     - ~/hzy/dl-data:/root/dl-data
     - ~/sxwl-dataset:/root/sxwl-dataset
-    - /var/run/docker.sock:/var/run/docker.sock
     - nvidia_driver_367.57:/usr/local/nvidia:ro
   zl-tigervnc:
     container_name: zl_dl_tigervnc
@@ -26,9 +27,11 @@ services:
     - /dev/nvidia0
     - /dev/nvidiactl
     - /dev/nvidia-uvm
+    external_links:
+    - zl_nginx_rtmp
     extra_hosts:
     - dockerhost:192.168.0.208
-    image: zl/dl-tigervnc:1.5.1.a
+    image: zl/dl-tigervnc:1.3
     ports:
     - 18001:8888
     - 16001:6006
@@ -39,7 +42,6 @@ services:
     volumes:
     - ~/zhangli/dl-data:/root/dl-data
     - ~/sxwl-dataset:/root/sxwl-dataset
-    - /var/run/docker.sock:/var/run/docker.sock
     - nvidia_driver_367.57:/usr/local/nvidia:ro
 version: '2'
 volumes:

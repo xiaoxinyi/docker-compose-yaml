@@ -1,34 +1,31 @@
 services:
-  hzy-x11:
+  hzy-caffe-torch_:
+    container_name: hzy_caffe_torch_
     devices:
     - /dev/nvidia0
     - /dev/nvidiactl
     - /dev/nvidia-uvm
-    image: 908768268763
+    image: zl/caffe-torch:1.6.a
     ports:
-    - 18002:8888
-    - 16002:6006
-    - 18902:5901
-    - 16081:6080
-    - '10002:22'
+    - 38889:8888
+    - 36007:6006
     restart: always
     tty: true
     volumes:
     - ~/hzy/dl-data:/root/dl-data
     - ~/sxwl-dataset:/root/sxwl-dataset
+    - ~/raychar/phpdocker/app/DeepAR_Backend/frontend/web/res/upload/ballreco:/root/BallReco
     - nvidia_driver_367.57:/usr/local/nvidia:ro
-  zl-x11:
+  zl-caffe-torch_:
+    container_name: zl_caffe_torch_
     devices:
     - /dev/nvidia0
     - /dev/nvidiactl
     - /dev/nvidia-uvm
-    image: 908768268763
+    image: zl/caffe-torch:1.6.a
     ports:
-    - 18001:8888
-    - 16001:6006
-    - 18901:5901
-    - 16080:6080
-    - '10001:22'
+    - 38888:8888
+    - 36006:6006
     restart: always
     tty: true
     volumes:
