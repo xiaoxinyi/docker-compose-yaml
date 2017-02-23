@@ -1,0 +1,17 @@
+version: '2'
+services:
+  zl-virtualgl:
+    image: yantis/virtualgl
+    container_name: zl_virtualgl
+    privileged: true
+    tty: true
+    restart: always
+    # environment:
+    #   - DISPLAY
+    devices:
+      - /dev/nvidia0
+    volumes:
+      - ~/.ssh/authorized_keys:/authorized_keys
+    ports:
+      - "13222:22"
+

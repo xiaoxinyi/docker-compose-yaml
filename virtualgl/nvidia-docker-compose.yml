@@ -1,0 +1,20 @@
+services:
+  zl-virtualgl:
+    container_name: zl_virtualgl
+    devices:
+    - /dev/nvidia0
+    - /dev/nvidiactl
+    - /dev/nvidia-uvm
+    image: yantis/virtualgl
+    ports:
+    - '13222:22'
+    privileged: true
+    restart: always
+    tty: true
+    volumes:
+    - ~/.ssh/authorized_keys:/authorized_keys
+    - nvidia_driver_367.57:/usr/local/nvidia:ro
+version: '2'
+volumes:
+  nvidia_driver_367.57:
+    external: true

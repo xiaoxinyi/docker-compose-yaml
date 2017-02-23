@@ -1,0 +1,12 @@
+version: '2'
+services:
+  zl-calibre-web:
+    image: janeczku/calibre-web
+    restart: always
+    container_name: zl_calibre_web
+    ports:
+      - "8080:80"
+    volumes:
+      - ~/zhangli/Calibre-Web:/calibre
+    privileged: true
+    tty: true

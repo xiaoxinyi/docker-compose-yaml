@@ -5,10 +5,14 @@ services:
     - /dev/nvidia0
     - /dev/nvidiactl
     - /dev/nvidia-uvm
-    image: zl/caffe-torch:1.11.a
+    image: zl/caffe-torch:2.16.b
     ports:
     - 8889:8888
     - 6007:6006
+    - 8006:8886
+    - 8005:8885
+    - 8004:8884
+    - 8009:8889
     restart: always
     tty: true
     volumes:
@@ -22,7 +26,7 @@ services:
     - /dev/nvidia0
     - /dev/nvidiactl
     - /dev/nvidia-uvm
-    image: zl/caffe-torch:1.11.a
+    image: zl/caffe-torch:2.16.b
     ports:
     - 8888:8888
     - 6006:6006

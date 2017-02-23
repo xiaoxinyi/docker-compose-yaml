@@ -5,7 +5,7 @@ services:
     - /dev/nvidia0
     - /dev/nvidiactl
     - /dev/nvidia-uvm
-    image: zl/dl-gnome:1.5.b
+    image: zl/dl-gnome:2.10.a
     ports:
     - '38022:22'
     - 38002:8888
@@ -23,7 +23,7 @@ services:
     - /dev/nvidia0
     - /dev/nvidiactl
     - /dev/nvidia-uvm
-    image: zl/dl-gnome:1.5.b
+    image: zl/dl-gnome:2.10.a
     ports:
     - '38021:22'
     - 38001:8888

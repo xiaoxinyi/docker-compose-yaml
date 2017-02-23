@@ -1,0 +1,22 @@
+services:
+  zl-modeldb:
+    container_name: zl_modeldb
+    devices:
+    - /dev/nvidia0
+    - /dev/nvidiactl
+    - /dev/nvidia-uvm
+    image: sanjayganeshan/mdgmodeldb:latest
+    ports:
+    - 8082:8082
+    - 8081:3000
+    privileged: true
+    restart: always
+    tty: true
+    volumes:
+    - ~/zhangli/dl-data:/root/dl-data
+    - ~/sxwl-dataset:/root/sxwl-dataset
+    - nvidia_driver_367.57:/usr/local/nvidia:ro
+version: '2'
+volumes:
+  nvidia_driver_367.57:
+    external: true

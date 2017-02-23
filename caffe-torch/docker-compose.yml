@@ -1,7 +1,7 @@
 version: '2'
 services:
   zl-caffe-torch:
-    image: zl/caffe-torch:1.6.a
+    image: zl/caffe-torch:2.16.b
     container_name: zl_caffe_torch
     restart: always
     tty: true
@@ -14,13 +14,17 @@ services:
       - ~/zhangli/dl-data:/root/dl-data
       - ~/sxwl-dataset:/root/sxwl-dataset
   hzy-caffe-torch:
-    image: zl/caffe-torch:1.6.a
+    image: zl/caffe-torch:2.16.b
     container_name: hzy_caffe_torch
     restart: always
     tty: true
     ports:
       - "8889:8888"
       - "6007:6006"
+      - "8006:8886"
+      - "8005:8885"
+      - "8004:8884"
+      - "8009:8889"
     devices:
       - /dev/nvidia0
     volumes:

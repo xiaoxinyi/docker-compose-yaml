@@ -1,0 +1,16 @@
+version: '2'
+services:
+  zl-modeldb:
+    image: sanjayganeshan/mdgmodeldb:latest
+    container_name: zl_modeldb
+    restart: always
+    tty: true
+    privileged: true
+    ports:
+      - "8082:8082"
+      - "8081:3000"
+    devices:
+      - /dev/nvidia0
+    volumes:
+      - ~/zhangli/dl-data:/root/dl-data
+      - ~/sxwl-dataset:/root/sxwl-dataset

@@ -1,7 +1,7 @@
 version: '2'
 services:
   zl-gnome:
-    image: zl/dl-gnome:1.5.b
+    image: zl/dl-gnome:2.10.a
     container_name: zl_dl_gnome
     restart: always
     tty: true
@@ -16,7 +16,7 @@ services:
       - ~/zhangli/dl-data:/root/dl-data
       - ~/sxwl-dataset:/root/sxwl-dataset
   hzy-gnome:
-    image: zl/dl-gnome:1.5.b
+    image: zl/dl-gnome:2.10.a
     container_name: hzy_dl_gnome
     restart: always
     tty: true
