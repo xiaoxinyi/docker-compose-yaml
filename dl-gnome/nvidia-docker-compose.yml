@@ -1,22 +1,4 @@
 services:
-  hzy-gnome:
-    container_name: hzy_dl_gnome
-    devices:
-    - /dev/nvidia0
-    - /dev/nvidiactl
-    - /dev/nvidia-uvm
-    image: zl/dl-gnome:2.10.a
-    ports:
-    - '38022:22'
-    - 38002:8888
-    - 36002:6006
-    - 38902:5901
-    restart: always
-    tty: true
-    volumes:
-    - ~/hzy/dl-data:/root/dl-data
-    - ~/sxwl-dataset:/root/sxwl-dataset
-    - nvidia_driver_367.57:/usr/local/nvidia:ro
   zl-gnome:
     container_name: zl_dl_gnome
     devices:

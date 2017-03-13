@@ -15,18 +15,3 @@ services:
     volumes:
       - ~/zhangli/dl-data:/root/dl-data
       - ~/sxwl-dataset:/root/sxwl-dataset
-  hzy-gnome:
-    image: zl/dl-gnome:2.10.a
-    container_name: hzy_dl_gnome
-    restart: always
-    tty: true
-    ports:
-      - "38022:22"
-      - "38002:8888"
-      - "36002:6006"
-      - "38902:5901"
-    devices:
-      - /dev/nvidia0
-    volumes:
-      - ~/hzy/dl-data:/root/dl-data
-      - ~/sxwl-dataset:/root/sxwl-dataset

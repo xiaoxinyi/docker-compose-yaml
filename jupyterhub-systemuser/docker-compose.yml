@@ -1,0 +1,14 @@
+version: '2'
+services:
+  zl-jupyterhub-systemuser:
+    image: jupyterhub/systemuser
+    container_name: zl_jupyterhub_systemuser
+    privileged: true
+    restart: always
+    tty: true
+    ports:
+      - "48000:8000"
+      - "48888:8888"
+    volumes:
+      - ~/zhangli/dl-data:/root/dl-data
+      - ~/sxwl-dataset:/root/sxwl-dataset
