@@ -1,17 +1,16 @@
 services:
-  zl-gnome-tiger:
-    container_name: zl_gnome_tiger
+  zl-gnome-supervisord:
+    container_name: zl_dl_gnome_supervisord
     devices:
     - /dev/nvidia0
     - /dev/nvidiactl
     - /dev/nvidia-uvm
-    image: zl/dl-tigervnc:3.13.a
+    image: zl/dl-gnome:3.13.c
     ports:
-    - 22008:8888
-    - 22006:6006
-    - 22900:5900
-    - '22002:22'
-    privileged: true
+    - '38121:22'
+    - 38101:8888
+    - 36101:6006
+    - 30901:5901
     restart: always
     tty: true
     volumes:

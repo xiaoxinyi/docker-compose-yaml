@@ -1,17 +1,17 @@
 version: '2'
 services:
-  zl-caffe-torch:
-    image: zl/caffe-torch:3.18.a
-    container_name: zl_caffe_torch
-    privileged: true
+  zl-gnome-supervisord:
+    image: zl/dl-gnome:3.13.c
+    container_name: zl_dl_gnome_supervisord
     restart: always
     tty: true
     ports:
-      - "8888:8888"
-      - "6006:6006"
+      - "38121:22"
+      - "38101:8888"
+      - "36101:6006"
+      - "30901:5901"
     devices:
       - /dev/nvidia0
-      - /dev/nvidia1
     volumes:
       - ~/zhangli/dl-data:/root/dl-data
       - ~/sxwl-dataset:/root/sxwl-dataset

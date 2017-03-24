@@ -1,0 +1,20 @@
+version: '2'
+services:
+  zl-dl-tightvnc:
+    image: zl/dl-tightvnc:3.18.a
+    container_name: zl_dev_dl_tightvnc
+    restart: always
+    privileged: true
+    tty: true
+    ports:
+      - "34222:22"
+      - "34081:8888"
+      - "34086:6006"
+      - "34981:5901"
+    devices:
+      - /dev/nvidia0
+      - /dev/nvidia1
+    volumes:
+      - ~/zhangli/dl-data:/root/dl-data
+      - ~/sxwl-dataset:/root/sxwl-dataset
+      - /home/luoyulong/workspace:/workspace

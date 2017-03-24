@@ -1,22 +1,24 @@
 services:
-  zl-gnome-tiger:
-    container_name: zl_gnome_tiger
+  zl-dl-tightvnc:
+    container_name: zl_dl_tightvnc
     devices:
     - /dev/nvidia0
+    - /dev/nvidia1
     - /dev/nvidiactl
     - /dev/nvidia-uvm
-    image: zl/dl-tigervnc:3.13.a
+    image: zl/dl-tightvnc:3.18.a
     ports:
-    - 22008:8888
-    - 22006:6006
-    - 22900:5900
-    - '22002:22'
+    - '38222:22'
+    - 38081:8888
+    - 36081:6006
+    - 38981:5901
     privileged: true
     restart: always
     tty: true
     volumes:
     - ~/zhangli/dl-data:/root/dl-data
     - ~/sxwl-dataset:/root/sxwl-dataset
+    - /home/luoyulong/workspace:/workspace
     - nvidia_driver_367.57:/usr/local/nvidia:ro
 version: '2'
 volumes:
