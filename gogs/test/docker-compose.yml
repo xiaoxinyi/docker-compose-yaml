@@ -1,0 +1,26 @@
+version: '2'
+services:
+  git-gogs:
+    image : gogs/gogs
+    restart : always
+    tty: true
+    privileged: true
+    container_name : sx1080_git_server_test
+    # depends_on:
+    #   - postgres
+    volumes:
+      - ../gogs-server:/data
+    ports:
+      - "32222:22"
+      - "38888:3000"
+    external_links:
+      - gogs_postgres:postgres
+
+  # postgres:
+  #   image: kiasaki/alpine-postgres
+  #   container_name: gogs_postgres
+  #   restart: always
+  #   expose:
+  #     - 5432
+  #   ports:
+  #     - "5433:5432"
