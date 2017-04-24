@@ -1,7 +1,8 @@
 version: '2'
 services:
   zl-dl-tightvnc:
-    image: zl/dl-tightvnc:3.18.a
+#    image: zl/dl-tightvnc:3.18.a
+    image: zl/dl-tightvnc:3.24.a
     container_name: zl_dl_tightvnc
     restart: always
     privileged: true
@@ -13,7 +14,6 @@ services:
       - "38981:5901"
     devices:
       - /dev/nvidia0
-      - /dev/nvidia1
     volumes:
       - ~/zhangli/dl-data:/root/dl-data
       - ~/sxwl-dataset:/root/sxwl-dataset
