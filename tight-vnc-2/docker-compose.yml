@@ -17,3 +17,5 @@ services:
       - ~/zhangli/dl-data:/root/dl-data
       - ~/sxwl-dataset:/root/sxwl-dataset
       - /home/luoyulong/workspace:/workspace
+
+    
