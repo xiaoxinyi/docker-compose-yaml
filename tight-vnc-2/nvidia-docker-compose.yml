@@ -5,12 +5,13 @@ services:
     - /dev/nvidia0
     - /dev/nvidiactl
     - /dev/nvidia-uvm
-    image: zl/dev-dl-tightvnc:4.19.aa
+    image: zl/dev-dl-tightvnc:11.07.a
     ports:
     - '34222:22'
     - 34081:8888
     - 34086:6006
     - 34981:5901
+    - 34989:8889
     privileged: true
     restart: always
     tty: true
@@ -18,8 +19,8 @@ services:
     - ~/zhangli/dl-data:/root/dl-data
     - ~/sxwl-dataset:/root/sxwl-dataset
     - /home/luoyulong/workspace:/workspace
-    - nvidia_driver_375.39:/usr/local/nvidia:ro
+    - nvidia_driver_384.90:/usr/local/nvidia:ro
 version: '2'
 volumes:
-  nvidia_driver_375.39:
+  nvidia_driver_384.90:
     external: true
