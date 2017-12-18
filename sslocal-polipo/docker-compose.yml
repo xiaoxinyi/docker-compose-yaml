@@ -1,0 +1,26 @@
+version: '2'
+services:
+  sslocal:
+    container_name: zl_sslocal
+    image: sunteya/shadowsocks:2.6.8
+    restart: always
+    volumes:
+      - ./shadowsocks-sslocal.json:/etc/shadowsocks.json
+    environment:
+      - SS_APP=sslocal
+    expose:
+      - 1080
+    ports:
+      - 1080:1080
+
+  polipo:
+    container_name: zl_polipo
+    image: sunteya/polipo:20160403
+    links:
+      - sslocal
+    volumes:
+      - ./polipo.config:/app/config
+    ports:
+      - "8123:8123"
+    restart: always
+    #command: [ "socksParentProxy=$SSLOCAL_PORT_1080_TCP_ADDR:1080" ]

@@ -1,0 +1,8 @@
+{
+    "server":"47.52.111.105",
+    "server_port":3389,
+    "local_address":"0.0.0.0",
+    "local_port":1080,
+    "password":"test123",
+    "method":"aes-256-cfb"
+}
