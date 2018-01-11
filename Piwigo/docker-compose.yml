@@ -1,0 +1,30 @@
+mysqlpiwigo:
+   image: mysql:5.5
+   volumes:
+      - /sxkj/data/piwigo/mysql/:/var/lib/mysql
+   environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=piwigo
+      - MYSQL_USER=piwigo
+      - MYSQL_PASSWORD=piwigo
+   container_name: zl_piwigo_mysql
+   ports:
+      - "3306:3306"
+piwigo:
+   image: mathieuruellan/piwigo
+   container_name: zl_piwigo
+   links:
+      - mysqlpiwigo
+   volumes:
+      - /sxkj/data/piwigo/data/galleries:/var/www/galleries
+      - /sxkj/data/piwigo/data/local:/var/www/local
+      - /sxkj/data/piwigo/data/plugins:/var/www/plugins
+      - /sxkj/data/piwigo/data/themes:/var/www/themes
+      - /sxkj/data/piwigo/cache:/var/www/_data/i
+      - /sxkj/data/piwigo/upload:/var/www/upload
+      - /var/log
+      - /var/log/piwigo:/var/log/apache2
+   ports:
+      - "65535:80"
+   # hostname: piwigo
+   # domainname: MYDOMAIN.COM
