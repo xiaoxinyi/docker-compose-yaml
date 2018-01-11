@@ -1,7 +1,7 @@
 version: '2'
 services:
   zl-dl-tightvnc:
-    image: zl/dev-dl-tightvnc:11.07.a
+    image: zl/dev-dl-tightvnc:12.22.a
     container_name: zl_dev_dl_tightvnc
     restart: always
     privileged: true
@@ -12,6 +12,7 @@ services:
       - "34086:6006"
       - "34981:5901"
       - "34989:8889"
+      - "34881:8881"
     devices:
       - /dev/nvidia0
     volumes:

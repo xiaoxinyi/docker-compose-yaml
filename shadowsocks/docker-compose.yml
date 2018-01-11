@@ -1,0 +1,34 @@
+version: '2'
+services:
+  shadowsocks:
+    image: mritd/shadowsocks
+    container_name: shadowsocks
+    restart: always
+    expose:
+      - 6443
+    ports:
+      - "6444:6443"
+    command:  -s "-s 0.0.0.0 -p 6443 -m aes-256-cfb -k test123 --fast-open"
+  sslocal:
+    container_name: zl_sslocal
+    image: xiaoxinyi/sslocal
+    restart: always
+    volumes:
+      - ./shadowsocks-sslocal.json:/etc/shadowsocks.json
+    environment:
+      - SS_APP=sslocal
+    expose:
+      - 1080
+    ports:
+      - 1080:1080
+  polipo:
+    container_name: zl_polipo
+    image: xiaoxinyi/polipo
+    privileged: true
+    links:
+      - sslocal
+    volumes:
+      - ./polipo.config:/app/config
+    ports:
+      - "8123:8123"
+    restart: always

@@ -1,4 +1,12 @@
 *~
 *#
 gogs/gogs-server
-gogs/gogs-server/*
+gogs/gogs-server/*mailserver/
+./mailserver/
+./mailserver
+/mailserver
+mock-api
+nginx-proxy
+monitor
+pha-mar
+phabricator
