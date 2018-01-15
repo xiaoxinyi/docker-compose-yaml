@@ -25,6 +25,6 @@ piwigo:
       - /var/log
       - /var/log/piwigo:/var/log/apache2
    ports:
-      - "65535:80"
-   # hostname: piwigo
-   # domainname: MYDOMAIN.COM
+      - "5535:80"
+   hostname: piwigo
+   domainname: localhost
