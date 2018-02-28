@@ -1,0 +1,6 @@
+nvidia-docker-plugin | 2018/01/11 17:55:39 Loading NVIDIA unified memory
+nvidia-docker-plugin | 2018/01/11 17:55:39 Loading NVIDIA management library
+nvidia-docker-plugin | 2018/01/11 17:55:39 Discovering GPU devices
+nvidia-docker-plugin | 2018/01/11 17:55:39 Provisioning volumes at /var/lib/nvidia-docker/volumes
+nvidia-docker-plugin | 2018/01/11 17:55:39 Serving plugin API at /run/docker/plugins
+nvidia-docker-plugin | 2018/01/11 17:55:39 Serving remote API at localhost:3476
