@@ -10,3 +10,8 @@ nginx-proxy
 monitor
 pha-mar
 phabricator
+.DS_Store
+._.DS_Store
+gogs.tar.gz
+gogs/.DS_Store
+gogs/._.DS_Store
