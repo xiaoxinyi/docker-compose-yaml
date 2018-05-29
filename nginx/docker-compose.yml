@@ -1,0 +1,15 @@
+version: "2.0"
+services:
+  ngnix-zl:
+    image: nginx:latest
+    privileged: true
+    restart: always
+    tty: true
+    container_name: zl_nginx
+    ports:
+      - "38080:80"
+      - "38081:443"
+    volumes:
+      - "./html:/usr/share/nginx/html"
+      - "./conf:/etc/nginx"
+      - "/home/sxwl1080/sxwl-dataset:/sxwl-dataset"
