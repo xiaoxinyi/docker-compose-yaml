@@ -1,7 +1,7 @@
 version: '2'
 services:
   zl-dl-tightvnc:
-    image: SXKJ:32775/zl-dev-dl-tightvnc:1.10.a
+    image: SXKJ:32775/zl-dev-dl-tightvnc:5.29.a
     container_name: zl_dev_dl_tightvnc
     restart: always
     privileged: true
@@ -16,6 +16,7 @@ services:
     devices:
       - /dev/nvidia0
     volumes:
-      - /sxkj/nas:/root/nas
-      - /sxkj/data:/root/data
+      - ~/sxwl-dataset:/root/sxwl-dataset
       - ./supervisord.conf:/etc/supervisord.conf
+      # - /usr/lib32/nvidia-375:/usr/local/nvidia/lib
+      # - /usr/lib/nvidia-375:/usr/local/nvidia/lib64
