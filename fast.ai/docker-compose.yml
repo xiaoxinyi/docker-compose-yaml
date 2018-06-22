@@ -1,0 +1,20 @@
+version: '2'
+services:
+  zl-fastai:
+    image: zl/dev-cuda9-pytorch3.0:dev
+    container_name: zl_dev_fastai
+    restart: always
+    privileged: true
+    tty: true
+    ports:
+      - "35222:22"
+      - "35081:8888"
+      - "35086:6006"
+      - "35981:5901"
+      - "35989:8889"
+      - "35881:8881"
+    devices:
+      - /dev/nvidia0
+    volumes:
+      - /sxkj/nas:/root/nas
+      - ./supervisord.conf:/etc/supervisord.conf

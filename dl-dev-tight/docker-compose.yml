@@ -1,22 +1,20 @@
 version: '2'
 services:
   zl-dl-tightvnc:
-    image: SXKJ:32775/zl-dev-dl-tightvnc:5.29.a
+    image: SXKJ:32775/zl-dev-dl-tightvnc:18.6.13.a
     container_name: zl_dev_dl_tightvnc
     restart: always
     privileged: true
     tty: true
     ports:
-      - "34222:22"
-      - "34081:8888"
-      - "34086:6006"
-      - "34981:5901"
-      - "34989:8889"
-      - "34881:8881"
+      - "33222:22"
+      - "33081:8888"
+      - "33086:6006"
+      - "33981:5901"
+      - "33989:8889"
+      - "33881:8881"
     devices:
       - /dev/nvidia0
     volumes:
-      - ~/sxwl-dataset:/root/sxwl-dataset
+      - /sxkj:/sxkj
       - ./supervisord.conf:/etc/supervisord.conf
-      # - /usr/lib32/nvidia-375:/usr/local/nvidia/lib
-      # - /usr/lib/nvidia-375:/usr/local/nvidia/lib64

@@ -1,0 +1,16 @@
+version: "2"
+
+services:
+  kodexplorer:
+    container_name: kodexplorer
+    image: SXKJ:32775/kodexplorer:1.0
+    restart: "always"
+    ports:
+      - "7777:80"
+    volumes:
+      - "/sxkj:/sxkj"
+
+networks:
+  lan:
+    external:
+      name: t99_lan
