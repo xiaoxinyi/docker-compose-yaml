@@ -11,11 +11,10 @@ monitor
 pha-mar
 phabricator
 .DS_Store
-<<<<<<< HEAD
 ._.DS_Store
 gogs.tar.gz
 gogs/.DS_Store
 gogs/._.DS_Store
-=======
 /._.DS_Store
->>>>>>> 2aaca2708f430fc1c6092221b776b556b3346431
+nginx/*.tgz
+nginx/shanggu_online/
