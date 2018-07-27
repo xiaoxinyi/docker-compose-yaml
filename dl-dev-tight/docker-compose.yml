@@ -1,7 +1,7 @@
-version: '2'
+version: '2.3'
 services:
   zl-dl-tightvnc:
-    image: SXKJ:32775/zl-dev-dl-tightvnc:18.6.13.a
+    image: SXKJ:32775/zl-dev-dl-tightvnc:7.20.a
     container_name: zl_dev_dl_tightvnc
     restart: always
     privileged: true
@@ -13,8 +13,7 @@ services:
       - "33981:5901"
       - "33989:8889"
       - "33881:8881"
-    devices:
-      - /dev/nvidia0
+    runtime: nvidia
     volumes:
       - /sxkj:/sxkj
       - ./supervisord.conf:/etc/supervisord.conf

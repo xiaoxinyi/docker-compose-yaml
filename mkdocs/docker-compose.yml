@@ -1,0 +1,13 @@
+version: "2"
+services:
+ mkdocs-zl:
+  restart: always
+  image: squidfunk/mkdocs-material
+  container_name: zl_mkdocs
+  tty: true
+  ports:
+      - "8000:8000"
+  volumes:
+      - ./data:/docs
+  privileged: true
+  # command: ["/bin/allmark", "serve", "/工作计划"]

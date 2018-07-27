@@ -1,0 +1,16 @@
+version: "2.0"
+services:
+  zl-mms:
+    image: awsdeeplearningteam/mms_cpu
+    privileged: true
+    restart: always
+    tty: true
+    container_name: zl_mms
+    ports:
+      - "28080:8080"
+    volumes:
+      - "./squeezenet_v1.1.model:/squeezenet_v1.1.model"
+      - "./mms_app_cpu.conf:/mxnet_model_server/mms_app_cpu.conf"
+    #   - "./html:/usr/share/nginx/html"
+    #   - "./conf:/etc/nginx"
+    command: ["mxnet-model-server", "start", "--mms-config", "/mxnet_model_server/mms_app_cpu.conf"]

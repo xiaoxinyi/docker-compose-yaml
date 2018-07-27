@@ -1,4 +1,4 @@
-version: '2'
+version: '2.3'
 services:
   zl-dl-tightvnc:
     image: SXKJ:32775/zl-dev-dl-tightvnc:5.29.a
@@ -13,8 +13,7 @@ services:
       - "34981:5901"
       - "34989:8889"
       - "34881:8881"
-    devices:
-      - /dev/nvidia0
+    runtime: nvidia
     volumes:
       - ~/zhangli/dl-data:/root/dl-data
       - ~/sxwl-dataset:/root/sxwl-dataset
