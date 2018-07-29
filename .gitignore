@@ -18,3 +18,4 @@ gogs/._.DS_Store
 /._.DS_Store
 nginx/*.tgz
 nginx/shanggu_online/
+nginx/html/dist
