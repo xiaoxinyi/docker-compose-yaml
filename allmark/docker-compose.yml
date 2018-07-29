@@ -1,0 +1,14 @@
+version: "2"
+services:
+ allmark-zl:
+  restart: always
+  image: andreaskoch/allmark
+  container_name: zl_allmark
+  tty: true
+  ports:
+      - "33001:33001"
+      - "33002:33002"
+  volumes:
+      - ./data:/工作计划
+  privileged: true
+  command: ["/bin/allmark", "serve", "/工作计划"]

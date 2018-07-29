@@ -1,0 +1,18 @@
+version: '2.3'
+services:
+  zl-mms-gpu:
+    image: awsdeeplearningteam/mms_gpu
+    container_name: zl_mms_gpu
+    restart: always
+    privileged: true
+    tty: true
+    ports:
+      - "38080:8080"
+    runtime: nvidia
+    command: ["mxnet-model-server", "start", "--mms-config", "/mxnet_model_server/mms_app_gpu.conf"]
+    volumes:
+    - ./squeezenet_v1.1.model:/squeezenet_v1.1.model
+    - ./mms_app_gpu.conf:/mxnet_model_server/mms_app_gpu.conf
+    #   - /sxkj/nas:/data/nas
+    #   - ./supervisord.conf:/etc/supervisord.conf
+    #   - ./start.sh:/opt/start.sh

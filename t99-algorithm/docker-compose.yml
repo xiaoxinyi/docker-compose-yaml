@@ -1,0 +1,33 @@
+version: "2.3"
+services:
+ t99a-zl:
+  restart: always
+  image: SXKJ:32775/ubuntu14.04-t99a-deploy:0.96
+  container_name: t99-algorithm
+  hostname: t99a
+  entrypoint: bash
+  tty: true
+  ports:
+      - "46022:22"
+      - "46590:5900"
+      - "45555:5555"
+      - "45556:5556"
+  expose:
+      - "6379"
+  runtime: nvidia
+  volumes:
+      - ./supervisord.conf:/etc/supervisord.conf
+      - /etc/localtime:/etc/localtime:ro
+      - ./supervisord.conf:/etc/supervisord.conf
+      - ./supervisord.d/:/etc/supervisord.d/
+      - ./service_config.conf:/etc/t99a_service_config.conf
+      - ./config/redis.conf:/etc/redis/redis.conf
+      - ./wait_for_it.sh:/wait_for_it.sh
+      - ./resource/default.jpg:/default.jpg
+      - ./entry.sh:/entry.sh
+  environment:
+      - SYNCER=shangu
+      - HOME=/root
+      - PYTHONPATH=/sxkj/app/t99a
+      - PYTHONIOENCODING=UTF-8
+  privileged: true

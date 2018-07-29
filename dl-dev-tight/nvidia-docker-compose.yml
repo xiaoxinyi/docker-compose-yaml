@@ -5,7 +5,10 @@ services:
     - /dev/nvidia0
     - /dev/nvidiactl
     - /dev/nvidia-uvm
+<<<<<<< HEAD
     - /dev/nvidia-uvm-tools
+=======
+>>>>>>> 1833df4759907b9e3c274804439169a681071993
     image: SXKJ:32775/zl-dev-dl-tightvnc:18.6.13.a
     ports:
     - '33222:22'

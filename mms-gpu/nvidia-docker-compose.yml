@@ -1,0 +1,24 @@
+services:
+  zl-mms-gpu:
+    command:
+    - mxnet-model-server
+    - start
+    - --mms-config
+    - /mxnet_model_server/mms_app_gpu.conf
+    container_name: zl_mms_gpu
+    devices:
+    - /dev/nvidia0
+    - /dev/nvidiactl
+    - /dev/nvidia-uvm
+    image: awsdeeplearningteam/mms_gpu
+    ports:
+    - 38080:8080
+    privileged: true
+    restart: always
+    tty: true
+    volumes:
+    - nvidia_driver_396.24.02:/usr/local/nvidia:ro
+version: '2'
+volumes:
+  nvidia_driver_396.24.02:
+    external: true
