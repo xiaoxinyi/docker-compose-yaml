@@ -1,0 +1,13 @@
+version: '2'
+services:
+  gost:
+    image:  ginuerzh/gost
+    container_name: zl_gost
+    restart: always
+    ports:
+      - "8126:8338"
+      - "8127:443"
+      - "8128:8338"
+      - "8129:8388"
+    # command:  -s "-s 0.0.0.0 -p 6443 -m aes-256-cfb -k test123 --fast-open"
+    command: ["-L", "kcp://:8388/:8338", "-L", "ss://chacha20:test123@:8338", "-L", "ss://aes-128-cfb:123456@:433", "-L", "obfs4://:443"]
