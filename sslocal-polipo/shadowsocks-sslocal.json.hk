@@ -1,6 +1,6 @@
 {
-    "server":"47.52.111.105",
-    "server_port":3389,
+    "server":"47.75.98.238",
+    "server_port":8124,
     "local_address":"0.0.0.0",
     "local_port":1080,
     "password":"test123",
