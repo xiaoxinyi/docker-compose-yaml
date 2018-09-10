@@ -1,0 +1,11 @@
+version: '2'
+services:
+  gost:
+    image:  ginuerzh/gost
+    container_name: zl_gost
+    restart: always
+    ports:
+      - "8126:12345"
+      - "8127:443"
+    # command:  -s "-s 0.0.0.0 -p 6443 -m aes-256-cfb -k test123 --fast-open"
+    command: ["-L", "redirect://:12345", "-F", "47.75.98.238:8127"]

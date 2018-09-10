@@ -1,0 +1,97 @@
+version: '3'
+
+services:
+
+  rabbit:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - eq-env
+    environment:
+      RABBITMQ_DEFAULT_USER: digitaleq
+      RABBITMQ_DEFAULT_PASS: digitaleq
+
+  db:
+    image: postgres:9.4
+    environment:
+      POSTGRES_PASSWORD: digitaleq
+      POSTGRES_USER: digitaleq
+      POSTGRES_DB: runner
+    ports:
+      - "5433:5432"
+    networks:
+      - eq-env
+
+  eq-survey-register:
+    image: onsdigital/eq-survey-register:latest
+    restart: always
+    networks:
+      - eq-env
+    ports:
+      - "8080:8080"
+
+  eq-survey-runner:
+    image: onsdigital/eq-survey-runner
+    environment:
+      EQ_DEV_MODE: "True"
+      EQ_DEVELOPER_LOGGING: "True"
+      EQ_ENABLE_SECURE_SESSION_COOKIE: "False"
+      EQ_ENABLE_LIVE_RELOAD: "True"
+      EQ_SERVER_SIDE_STORAGE_DATABASE_HOST: db
+      EQ_SERVER_SIDE_STORAGE_DATABASE_NAME: runner
+      EQ_RABBITMQ_HOST: rabbit
+      EQ_RABBITMQ_HOST_SECONDARY: rabbit
+      EQ_SECRETS_FILE: docker-secrets.yml
+      EQ_KEYS_FILE: docker-keys.yml
+      EQ_DYNAMODB_ENDPOINT: http://eq-docker-dynamodb:8000
+      EQ_SUBMITTED_RESPONSES_TABLE_NAME: dev-submitted-responses
+      EQ_QUESTIONNAIRE_STATE_TABLE_NAME: dev-questionnaire-state
+      EQ_QUESTIONNAIRE_STATE_DYNAMO_READ: "True"
+      EQ_QUESTIONNAIRE_STATE_DYNAMO_WRITE: "True"
+      EQ_SESSION_TABLE_NAME: dev-eq-session
+      EQ_SESSION_DYNAMO_READ: "True"
+      EQ_SESSION_DYNAMO_WRITE: "True"
+      EQ_USED_JTI_CLAIM_TABLE_NAME: dev-used-jti-claim
+      EQ_USED_JTI_CLAIM_DYNAMO_READ: "True"
+      EQ_USED_JTI_CLAIM_DYNAM_WRITE: "True"
+      AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID:-dummy}"
+      AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY:-dummy}"
+    restart: always
+    depends_on:
+      - db
+      - rabbit
+      - eq-docker-dynamodb
+    networks:
+      - eq-env
+    ports:
+      - "5000:5000"
+
+  go-launch-a-survey:
+    image: onsdigital/go-launch-a-survey:latest
+    environment:
+      SURVEY_RUNNER_URL: http://0.0.0.0:5000
+      SURVEY_RUNNER_SCHEMA_URL: http://eq-survey-runner:5000
+      SURVEY_REGISTER_URL: http://eq-survey-register:8080/
+    restart: always
+    depends_on:
+      - eq-survey-runner
+    networks:
+      - eq-env
+    ports:
+      - "8000:8000"
+
+
+  eq-docker-dynamodb:
+    image: onsdigital/eq-docker-dynamodb:latest
+    restart: always
+    networks:
+      - eq-env
+    ports:
+      - "6060:8000"
+
+
+networks:
+  eq-env:
+    external: true
