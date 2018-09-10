@@ -1,0 +1,27 @@
+services:
+  zl-dl-tightvnc:
+    container_name: zl_dev_dl_tightvnc
+    devices:
+    - /dev/nvidia0
+    - /dev/nvidiactl
+    - /dev/nvidia-uvm
+    - /dev/nvidia-uvm-tools
+    image: SXKJ:32775/zl-dev-dl-tightvnc:18.6.13.a
+    ports:
+    - '33222:22'
+    - 33081:8888
+    - 33086:6006
+    - 33981:5901
+    - 33989:8889
+    - 33881:8881
+    privileged: true
+    restart: always
+    tty: true
+    volumes:
+    - /sxkj:/sxkj
+    - ./supervisord.conf:/etc/supervisord.conf
+    - nvidia_driver_396.24.02:/usr/local/nvidia:ro
+version: '2'
+volumes:
+  nvidia_driver_396.24.02:
+    external: true

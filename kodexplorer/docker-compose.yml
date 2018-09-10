@@ -8,9 +8,17 @@ services:
     ports:
       - "7777:80"
     volumes:
+<<<<<<< HEAD
+      - "/home/sxwl1080/sxwl-dataset:/sxkj"
+=======
       - "/sxkj:/sxkj"
+>>>>>>> 1833df4759907b9e3c274804439169a681071993
 
 networks:
   lan:
     external:
+<<<<<<< HEAD
       name: t99_lan
+=======
+      name: t99_lan
+>>>>>>> 1833df4759907b9e3c274804439169a681071993

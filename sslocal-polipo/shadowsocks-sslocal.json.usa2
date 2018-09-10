@@ -1,8 +1,8 @@
 {
-    "server":"47.75.98.238",
-    "server_port":8124,
+    "server":"vip2e.xycde.com",
+    "server_port":10157,
     "local_address":"0.0.0.0",
     "local_port":1080,
-    "password":"test123",
+    "password":"94683895",
     "method":"aes-256-cfb"
 }

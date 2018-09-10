@@ -13,6 +13,9 @@ services:
       - "33981:5901"
       - "33989:8889"
       - "33881:8881"
+    # devices:
+    # - /dev/nvidia0
+
     runtime: nvidia
     volumes:
       - /sxkj:/sxkj

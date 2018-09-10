@@ -1,0 +1,26 @@
+services:
+  zl-dl-tightvnc:
+    container_name: zl_dev_dl_tightvnc
+    devices:
+    - /dev/nvidia0
+    - /dev/nvidiactl
+    - /dev/nvidia-uvm
+    image: SXKJ:32775/zl-dev-dl-tightvnc:5.29.a
+    ports:
+    - '34222:22'
+    - 34081:8888
+    - 34086:6006
+    - 34981:5901
+    - 34989:8889
+    - 34881:8881
+    privileged: true
+    restart: always
+    tty: true
+    volumes:
+    - ~/zhangli/dl-data:/root/dl-data
+    - ~/sxwl-dataset:/root/sxwl-dataset
+    - nvidia_driver_375.66:/usr/local/nvidia:ro
+version: '2'
+volumes:
+  nvidia_driver_375.66:
+    external: true

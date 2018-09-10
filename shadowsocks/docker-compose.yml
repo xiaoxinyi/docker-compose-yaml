@@ -8,7 +8,8 @@ services:
       - 6443
     ports:
       - "6444:6443"
-    command:  -s "-s 0.0.0.0 -p 6443 -m aes-256-cfb -k test123 --fast-open"
+    # command:  -s "-s 0.0.0.0 -p 6443 -m aes-256-cfb -k test123 --fast-open"
+    command: -s "-s 0.0.0.0 -p 6443 -m aes-256-cfb -k test123 --fast-open" -x -e "kcpserver" -k "-t 127.0.0.1:6443 -l :6500 -mode fast3 -key test123 -sndwnd 128 -rcvwnd 512"
   sslocal:
     container_name: zl_sslocal
     image: xiaoxinyi/sslocal
