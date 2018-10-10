@@ -7,4 +7,4 @@ services:
     privileged: true
     ports:
       - "8126:8126"
-    command: ["-p", "8126", "-k", "test123", "-m", "aes-128-ctr", "-O", "auth_aes128_sha1", "-o", "http_post"]#
+    command: ["-p", "8126", "-k", "test123", "-m", "aes-128-ctr", "-O", "auth_aes128_sha1", "-o", "http_post"]
