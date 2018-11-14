@@ -5,6 +5,7 @@ services:
     container_name: zl_gost
     restart: always
     ports:
-      - "8181:8080"
-    command: ["-L", ":8080", "-F", "ss://aes-256-cfb:94683895@jp2e.xycde.com:10157"]
+      - "8123:8080"
+    command: ["-L", ":8080", "-F", "ss://test123@47.75.98.238:8128"]
+    # docker run -td ginuerzh/gost -name zl_gost -p 8123:8080 -L=:8080, -F=ss://47.75.98.238:94683895@47.75.98.238:8128
     #command: ["-L", ":8080", "-F", "http+tls://47.75.98.238:8111"]

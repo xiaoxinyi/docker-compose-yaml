@@ -1,7 +1,7 @@
 version: '3'
 services:
   zl-fastai:
-    image: SXKJ:32775/zl-dev-fastai:9.10.a
+    image: zl/dev-fastai:11.12.a
     container_name: zl_dev_fastai
     restart: always
     privileged: true
@@ -16,5 +16,6 @@ services:
     #runtime: nvidia
     volumes:
       - /sxkj/nas:/data/nas
+      - ./start.conf:/etc/supervisor/conf.d/start.conf
       - ./supervisord.conf:/etc/supervisord.conf
       - ./start.sh:/opt/start.sh
