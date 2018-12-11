@@ -1,8 +1,8 @@
 {
-    "server":"jp1e.xycde.com",
-    "server_port":10157,
+    "server":"jp-A.2cy.ltd",
+    "server_port":4656,
     "local_address":"0.0.0.0",
     "local_port":1080,
-    "password":"94683895",
-    "method":"aes-256-cfb"
+    "password":"YUbyNs",
+    "method":"rc4-md5"
 }
