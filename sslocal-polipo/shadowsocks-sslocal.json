@@ -1,8 +1,8 @@
 {
-    "server":"jp-A.2cy.ltd",
-    "server_port":4656,
+    "server":"hk-C.2cy.ltd",
+    "server_port":7420,
     "local_address":"0.0.0.0",
     "local_port":1080,
-    "password":"YUbyNs",
+    "password":"ThrWVD",
     "method":"rc4-md5"
 }
