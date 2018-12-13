@@ -1,0 +1,9 @@
+version: '2'
+services:
+  gost:
+    image:  zl/alpine-dev:10.26.b
+    container_name: zl_alpine_dev
+    restart: always
+    tty: true
+    volumes:
+      - /sxkj:/sxkj

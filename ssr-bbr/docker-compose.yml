@@ -1,0 +1,10 @@
+version: '2'
+services:
+  ssr-bbr:
+    image:  letssudormrf/ssr-bbr-docker
+    container_name: zl_ssr_bbr
+    restart: always
+    privileged: true
+    ports:
+      - "8126:8126"
+    command: ["-p", "8126", "-k", "test123", "-m", "aes-128-ctr", "-O", "auth_aes128_sha1", "-o", "http_post"]

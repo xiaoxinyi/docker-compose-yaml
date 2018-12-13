@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-version: '2'
+version: '3'
 services:
   zl-fastai:
-    image: zl/dev-fastai:6.7.a
-=======
-version: '2.3'
-services:
-  zl-fastai:
-    image: SXKJ:32775/zl-dev-fastai:7.20.a
->>>>>>> 1833df4759907b9e3c274804439169a681071993
+    image: zl/dev-fastai:11.12.a
     container_name: zl_dev_fastai
     restart: always
     privileged: true
@@ -20,15 +13,9 @@ services:
       - "35981:5901"
       - "35989:8889"
       - "35881:8881"
-<<<<<<< HEAD
-    devices:
-      - /dev/nvidia0
-=======
-    # devices:
-    #   - /dev/nvidia0
-    runtime: nvidia
->>>>>>> 1833df4759907b9e3c274804439169a681071993
+    #runtime: nvidia
     volumes:
       - /sxkj/nas:/data/nas
+      - ./start.conf:/etc/supervisor/conf.d/start.conf
       - ./supervisord.conf:/etc/supervisord.conf
       - ./start.sh:/opt/start.sh

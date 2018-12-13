@@ -5,9 +5,7 @@ services:
     container_name: zl_gost
     restart: always
     ports:
-      - "8126:8338"
-      - "8127:443"
-      - "8128:8338"
-      - "8129:8388"
-    # command:  -s "-s 0.0.0.0 -p 6443 -m aes-256-cfb -k test123 --fast-open"
-    command: ["-L", "kcp://:8388/:8338", "-L", "ss://chacha20:test123@:8338", "-L", "ss://aes-128-cfb:123456@:433", "-L", "obfs4://:443"]
+      - "8123:8080"
+    command: ["-L", ":8080", "-F", "ss://test123@47.75.98.238:8128"]
+    # docker run -td ginuerzh/gost -name zl_gost -p 8123:8080 -L=:8080, -F=ss://47.75.98.238:94683895@47.75.98.238:8128
+    #command: ["-L", ":8080", "-F", "http+tls://47.75.98.238:8111"]
